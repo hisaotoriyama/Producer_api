@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
       login: "",
       password: "",
+      token:""
     },
   
     methods: {
@@ -25,6 +26,8 @@ var app = new Vue({
         console.log(this.password)
         return fetch("/token_receiver_server?login=" + self.login + "&password=" + self.password, d)
         // .then(e => e.json().then(j => j.result))
-        .then((e) => console.log(e))
+        .then((e) => {
+          self.token = e 
+        })
       }
     }})
