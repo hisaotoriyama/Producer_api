@@ -14,23 +14,81 @@
 <body>
   <div id="app">
     <div class="row">
-      <table class="table table table-striped ml-5 mt-15">
-        <th>Create</th>
-        <th>user login</th>
-        <th>password</th>
 
+      <table class="table table table-striped ml-5 mt-15">
+
+      <h2> "       LIMS</h2> 
+        <th>Token Create</th>
+        <!-- <th>RailWayBill Receiver</th> -->
+        <th>Chemcom per Unit</th>
         <tr>
           <td><button type="button" class="btn btn-outline-primary" v-on:click="createtoken">Create</button></td>
+          <!-- <td><button type="button" class="btn btn-outline-primary" v-on:click="receive_rwb_info">RailWayBill</button></td> -->
+          <td><button type="button" class="btn btn-outline-primary" v-on:click="receive_chemcom_per_unit">Chemcom per Unit</button></td>
+        </tr>
+      </table>
+      
+      <table class="table table table-striped ml-5 mt-15">
+        <th>user login</th>
+        <th>password</th>
+        <th>Token</th>
+
+        
+        <tr>
           <td><input type="text" v-model="login"></td>
           <td><input type="text" v-model="password"></td>
-        </tr>
+          <td><input type="text" v-model="token"></td>
 
-        <>
+        </tr>
       </table>
 
+      <table class="table table table-striped ml-5 mt-15">
+        <th>BL</th>
+        <tr>
+          <td><input type="text" v-model="wagonuni"></td>
+        </tr>
+      </table>
+
+      <table class="table table table-striped ml-5 mt-15">
+        <th>B/L Number</th>
+        <tr v-for="each_wagonuni in wagonuni_numbers">
+          <td><input type="checkbox" id= "select_wagonuni" v-model="select_wagonuni">{{each_wagonuni}}</td>
+        </tr>
+      </table>
+
+      <table class="table table table-striped ml-5 mt-15">
+        <h2>"       Chemical composition</h2>
+
+        <th>Production Id Number</th>
+        <th>NKKK Temp</th>
+        <th>Si</th>
+        <th>Fe</th>
+        <th>Mg</th>
+
+        <tr v-for="each_chemcom in chemcom">
+          <td>{{each_chemcom.HeatNumber}}</td>
+          <td>{{92230}}</td>
+          <span v-bind:style="alartMarkinSi"><td>{{each_chemcom.SI}}</td></span>
+
+          <td>{{each_chemcom.FE}}</td>
+          <td>{{each_chemcom.MG}}</td>
+        </tr>
+
+          <!-- <td><input type="checkbox" id= "select_wagonuni" v-model="select_wagonuni">{{each_wagonuni}}</td> -->
+
+      </table>
+      <!-- <table class="table table table-striped ml-5 mt-15">
+
+          <eachwagonunit>
+            <tr is=eachwagonunit v-for="each_wagonuni in wagonuni_numbers" v-bind:arg="each_wagonuni"></tr>
+          </eachwagonunit>
 
 
-    <pre>{{$data}}</pre>
+      </table> -->
+
+    <!-- <pre>{{$data.data_per_HeatNumber}}</pre> -->
+    <pre>{{$data.wagonuni_numbers}}</pre>
+    
   </div>
   </div>
 
